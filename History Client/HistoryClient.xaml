@@ -1,0 +1,136 @@
+﻿<!--Table display history client-->
+<UserControl x:Class="AppGST.HistoryClient"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AppGST"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <local:HistoryViewModel/>
+    </UserControl.DataContext>
+
+    <!--Top Menu-->
+    <Grid Background="#292929">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="1" ItemsSource="{Binding ItemsHistory,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Maximal Pulse Per Day" DisplayMemberBinding="{Binding MaximalPulsePerDay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="Incident Location" DisplayMemberBinding="{Binding CurrentLocation, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="Time of Incident" DisplayMemberBinding="{Binding TimeIncedent, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="Serial Number Of Module" DisplayMemberBinding="{Binding SerialNumberOfModule, UpdateSourceTrigger=PropertyChanged}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
+        <StackPanel Name="calendarStackPAnel" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal" Grid.Row="0" Margin="0,20,0,0" >
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Date From: " FontSize="15" FontWeight="Bold" Foreground="Snow">
+                    <Label.RenderTransform>
+                        <TranslateTransform Y="-5"/>
+                    </Label.RenderTransform>
+                </Label>
+                <StackPanel>
+                    <DatePicker Name="dateFrom" IsDropDownOpen="False" SelectedDate="{Binding HistoryModel.FromDate,Mode=TwoWay}" Focusable="True" Width="250"  Background="Red" Margin="0,0,50,0" 
+                                SelectedDateChanged="SelectedDateFrom"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Date To: " FontSize="15" FontWeight="Bold" Foreground="Snow">
+                    <Label.RenderTransform>
+                        <TranslateTransform Y="-5"/>
+                    </Label.RenderTransform>
+                </Label>
+                <StackPanel>
+                    <DatePicker Name="dateTo" IsDropDownOpen="False" Focusable="True" Width="250" SelectedDate="{Binding HistoryModel.ToDate,Mode=TwoWay}" 
+                                Background="Red" SelectedDateChanged="SelectedDateTo"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"  Margin="0,50,0,0" HorizontalAlignment="Left">
+            <StackPanel.RenderTransform>
+                <TranslateTransform X="330"/>
+            </StackPanel.RenderTransform>
+            <Label Content="S/N GST Module:" Foreground="Snow" VerticalAlignment="Center" FontSize="15" FontWeight="Bold"/>
+            <TextBox Name="snModule" FontWeight="Bold" Height="25" MinWidth="200" Text="{Binding HistoryModel.SerialNumberOfModule}" Padding="3.2"></TextBox>
+        </StackPanel>
+        <Button Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"  Content="Subbmit" Margin="1100,0,0,0" MinWidth="100" MinHeight="50" Foreground="Snow" 
+                Cursor="Hand" Command="{Binding DisplayHistoryCommand}" CommandParameter="{Binding Text,ElementName=snModule}">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="5" MinWidth="100" MinHeight="50">
+                        <Border.Background>
+                            <LinearGradientBrush SpreadMethod="Reflect" StartPoint="0,0" EndPoint="0,0.5">
+                                <GradientStop Offset="1" Color="Black"/>
+                                <GradientStop Offset="0.4" Color="OrangeRed"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <ContentControl HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Cursor="{TemplateBinding Cursor}"
+                                        FontSize="{TemplateBinding FontSize}" FontWeight="{TemplateBinding FontWeight}" Content="{TemplateBinding Content}"
+                                        VerticalAlignment="{TemplateBinding VerticalAlignment}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        
+       <!--ProgressBar-->
+        <ProgressBar x:Name="progresBar" Height="30" Minimum="0" Maximum="100" Grid.Row="2" HorizontalAlignment="Stretch"
+                     Value="{Binding HistoryModel.Value,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+            <ProgressBar.Style>
+                <Style TargetType="{x:Type ProgressBar}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ProgressBar}">
+                                <Grid MinHeight="0" MinWidth="200" Background="{TemplateBinding Background}">
+                                    <Border x:Name="PART_Track"  BorderThickness="1">
+                                        <Border.BorderBrush>
+                                            <SolidColorBrush Color="Snow" />
+                                        </Border.BorderBrush>
+                                    </Border>
+                                    <Border x:Name="PART_Indicator"  BorderThickness="1" HorizontalAlignment="Left"
+                                            Background="{TemplateBinding Foreground}" Margin="0,-1,0,1">
+                                        <Border.BorderBrush>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                <GradientBrush.GradientStops>
+                                                    <GradientStopCollection>
+                                                        <GradientStop Color="Red" Offset="0.0" />
+                                                        <GradientStop Color="Black" Offset="1.0" />
+                                                    </GradientStopCollection>
+                                                </GradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Border.BorderBrush>
+                                    </Border>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="Red" Offset="0" />
+                                <GradientStop Color="Black" Offset="1" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Foreground">
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Blue" Offset="0" />
+                                <GradientStop Color="Black" Offset="1" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ProgressBar.Style>
+        </ProgressBar>
+    </Grid>
+</UserControl>

@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{63FE703E-8AE7-41D5-9C18-2B2B1B6422FD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AppGST</RootNamespace>
+    <AssemblyName>AppGST</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BingMapsRESTToolkit, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BingMapsRESTToolkit.1.1.4\lib\net45\BingMapsRESTToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Maps.MapControl.WPF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Maps.MapControl.WPF.1.0.0.3\lib\net40-Client\Microsoft.Maps.MapControl.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Converters, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b532964b8548be77, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Converters.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Core, Version=0.3.1.1588, Culture=neutral, PublicKeyToken=7407205e337c98ef, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Css, Version=0.3.1.1590, Culture=neutral, PublicKeyToken=7a46e3f532fdb787, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Css.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Dom, Version=0.3.1.1589, Culture=neutral, PublicKeyToken=517340b6277b1a7a, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Dom.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Model, Version=0.3.1.1592, Culture=neutral, PublicKeyToken=2236cfc76b505845, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Rendering.Gdi, Version=0.3.1.1595, Culture=neutral, PublicKeyToken=03902092284347e3, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Rendering.Gdi.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Rendering.Wpf, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d0902381100df30e, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Rendering.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d16e717f0a981fb9, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpVectors.1.0\lib\net20\SharpVectors.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=1.4.18.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.1.4.18\lib\net\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Add Client\AddClientSerialization.cs" />
+    <Compile Include="Add Client\AddClient.xaml.cs">
+      <DependentUpon>AddClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Alarms\AlarmsService.cs" />
+    <Compile Include="Alarms\AlarmsViewModel.cs" />
+    <Compile Include="Alarms\AlarmsModel.cs" />
+    <Compile Include="Alarms\Alarms.xaml.cs">
+      <DependentUpon>Alarms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Alarms\AlarmsDeserialize.cs" />
+    <Compile Include="All Request To Server\RequestToDataBase.cs" />
+    <Compile Include="All Users\AllUsers.xaml.cs">
+      <DependentUpon>AllUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="All Users\AllUsersModel.cs" />
+    <Compile Include="All Users\AllUsersViewModel.cs" />
+    <Compile Include="Bing Maps\BehaviorBingMaps.cs" />
+    <Compile Include="Bing Maps\GSTService.cs" />
+    <Compile Include="Statistics\StatisticService.cs" />
+    <Compile Include="Statistics\DeserializeStatistic.cs" />
+    <Compile Include="Download General Data\DeserializeRealTimeData.cs" />
+    <Compile Include="Download General Data\DownloadDataFromDatabase.cs" />
+    <Compile Include="Medical Cards\DiagnosisModel.cs" />
+    <Compile Include="Medical Cards\DoctorsModel.cs" />
+    <Compile Include="Helper Class\Client.cs" />
+    <Compile Include="Logon\Authorization.cs" />
+    <Compile Include="Bing Maps\BingMapsViewModel.cs" />
+    <Compile Include="History Client\HistoryModel.cs" />
+    <Compile Include="History Client\HistoryViewModel.cs" />
+    <Compile Include="Interfaces\IPageViewModel.cs" />
+    <Compile Include="Helper Class\MainWindowViewModel.cs" />
+    <Compile Include="Bing Maps\MapModel.cs" />
+    <Compile Include="Logon\LogonGST.xaml.cs">
+      <DependentUpon>LogonGST.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Medical Cards\AuthorizationAPIMedicalCards.xaml.cs">
+      <DependentUpon>AuthorizationAPIMedicalCards.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Bing Maps\BingMaps.xaml.cs">
+      <DependentUpon>BingMaps.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Medical Cards\ConncectionToAPIforMedicalCards.xaml.cs">
+      <DependentUpon>ConncectionToAPIforMedicalCards.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="History Client\HistoryClient.xaml.cs">
+      <DependentUpon>HistoryClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helper Class\ObserverableObject.cs" />
+    <Compile Include="Medical Cards\MedicalCardsModel.cs" />
+    <Compile Include="Microcontrollers\MicrocontrollersModel.cs" />
+    <Compile Include="Medical Cards\MedicalCardsViewModel.cs" />
+    <Compile Include="Helper Class\OtherDetailForClient.cs" />
+    <Compile Include="Medical Cards\NotesModel.cs" />
+    <Compile Include="Add Client\ModelClient.cs" />
+    <Compile Include="Personal Info\PersonnelInfo.xaml.cs">
+      <DependentUpon>PersonnelInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Personal Info\PersonnelInfoModel.cs" />
+    <Compile Include="Personal Info\PersonnelInfoViewModel.cs" />
+    <Compile Include="Medical Cards\PillsModel.cs" />
+    <Compile Include="Post Data To Server\PostDataToServer.cs" />
+    <Compile Include="Helper Class\RelayCommand.cs" />
+    <Compile Include="All Users\Service.cs" />
+    <Compile Include="Personal Info\ServicePersonnelInfo.cs" />
+    <Compile Include="History Client\ServiceHistory.cs" />
+    <Compile Include="Statistics\StatisticsModel.cs" />
+    <Compile Include="Statistics\Statistics.xaml.cs">
+      <DependentUpon>Statistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Medical Cards\ViewMedicalCards.xaml.cs">
+      <DependentUpon>ViewMedicalCards.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Statistics\StatisticViewModel.cs" />
+    <Compile Include="Weather\Weather.cs" />
+    <Page Include="Add Client\AddClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Alarms\Alarms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="All Users\AllUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Logon\LogonGST.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Medical Cards\AuthorizationAPIMedicalCards.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Bing Maps\BingMaps.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Medical Cards\ConncectionToAPIforMedicalCards.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="History Client\HistoryClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="All Users\All_UsersDeserialize.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Authorization\AutorizationDeserialize.cs" />
+    <Compile Include="Authorization\Change_Resetore_Password.cs" />
+    <Compile Include="Medical Cards\ConnectToApiMedicalCardDeserialize.cs" />
+    <Compile Include="History Client\HistoryDeserialize.cs" />
+    <Compile Include="Interfaces\IDoctor.cs" />
+    <Compile Include="Interfaces\IMedicalData.cs" />
+    <Compile Include="Interfaces\IMicroController.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Personal Info\PersonnelInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Statistics\Statistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Medical Cards\ViewMedicalCards.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Medical Cards\MedicalCardDeserialize.cs" />
+    <Compile Include="Microcontrollers\MicroControllersDeserialize.cs" />
+    <Compile Include="Personal Info\PersonellInfoDeserilize.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\search-icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\SOS.png" />
+    <Resource Include="Image\Satellite.png" />
+    <SplashScreen Include="Image\GST1.jpg" />
+    <Resource Include="Image\light.gif" />
+    <Resource Include="Image\light_turnOff.jpg" />
+    <Resource Include="Image\Battery.png" />
+    <Resource Include="Image\ECG.png" />
+    <Resource Include="Image\GPS.png" />
+    <Resource Include="Image\GSM.png" />
+    <Resource Include="Image\Bluetooth.png" />
+    <Content Include="Image\Minus.png" />
+    <Resource Include="Image\Plus.jpg" />
+    <Resource Include="Image\World.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

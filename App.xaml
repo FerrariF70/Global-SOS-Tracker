@@ -1,0 +1,9 @@
+﻿<Application x:Class="AppGST.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:map="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+             xmlns:local="clr-namespace:AppGST">
+    <Application.Resources>
+        <map:ApplicationIdCredentialsProvider ApplicationId="WJZEJwHrZpkfmhSMv2hn~lXoa_QBX-gwjc19FS2YT3g~ArdlrzM_boCRul2DXI1HcyhBnHWqV2Ch0ajL3H1yaWaQstxxOTh5PD4kZ_Cb9bXJ" x:Key="Key"/>
+    </Application.Resources>
+</Application>
